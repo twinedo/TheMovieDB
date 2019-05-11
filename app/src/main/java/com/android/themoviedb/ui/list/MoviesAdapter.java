@@ -1,16 +1,13 @@
 package com.android.themoviedb.ui.list;
 
-/**
- * Created by twin on 04/12/16.
- */
-
 import android.net.Uri;
-import android.support.annotation.LayoutRes;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
+import androidx.annotation.LayoutRes;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.themoviedb.R;
 import com.android.themoviedb.model.Movie;
@@ -24,6 +21,11 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+/*
+ Created by twin on Dec 04, 2016
+Updated by twin on May 10, 2019
+*/
 
 public class MoviesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
@@ -81,9 +83,8 @@ public class MoviesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         }
 
         public void bind(String posterUrl, String movie) {
-            Picasso.with(itemView.getContext()).load(posterUrl).into(posterView);
+            Picasso.get().load(posterUrl).into(posterView);
         }
-
 
         public void setItemClickListener(final OnClickListener onClickListener, final Movie movie) {
             itemView.setOnClickListener(new View.OnClickListener() {

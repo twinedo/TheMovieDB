@@ -5,16 +5,17 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.annotation.Nullable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.themoviedb.R;
 import com.android.themoviedb.api.service.MovieService;
@@ -31,15 +32,16 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-/**
- * Created by twin on 04/12/16.
- */
+/*
+ Created by twin on Dec 04, 2016
+Updated by twin on May 10, 2019
+*/
 
 public class MainFragment extends Fragment implements SortableFragment{
 
     private final String TAG = MainFragment.class.getSimpleName();
 
-    @BindView(R.id.recyclerview)RecyclerView recyclerView;
+    @BindView(R.id.recyclerview) RecyclerView recyclerView;
     @BindView(R.id.loading)ProgressBar loadingView;
 
     private static final String DEFAULT_SORT = "popular";
@@ -48,7 +50,7 @@ public class MainFragment extends Fragment implements SortableFragment{
     private MoviesAdapter adapter;
     private String sort;
 
-    public static MainFragment newInstance(){
+    public static Fragment newInstance(){
         return new MainFragment();
     }
 
@@ -72,11 +74,12 @@ public class MainFragment extends Fragment implements SortableFragment{
         GridLayoutManager gridLayoutManager = new GridLayoutManager(
                 getActivity(),
                 2,
-                LinearLayoutManager.VERTICAL,
+                RecyclerView.VERTICAL,
                 false
         );
 
         recyclerView.setLayoutManager(gridLayoutManager);
+        recyclerView.setHasFixedSize(true);
 
         adapter = new MoviesAdapter();
         adapter.setOnClickListener(new MoviesAdapter
@@ -95,7 +98,6 @@ public class MainFragment extends Fragment implements SortableFragment{
         }else {
             sort = savedInstanceState.getString(KEY_SORT);
         }
-
         getListMovie(sort);
 
     }

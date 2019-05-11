@@ -8,10 +8,12 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,9 +41,10 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-/**
- * Created by twin on 06/12/16.
- */
+/*
+ Created by twin on Dec 06 2016
+Updated by twin on May 10, 2019
+*/
 
 public class DetailFragment extends Fragment {
 
@@ -53,14 +56,13 @@ public class DetailFragment extends Fragment {
     private TrailersAdapter adapter;
     private ReviewsAdapter mReviewListAdapter;
 
-
     @BindView(R.id.mov_poster)ImageView posters;
     @BindView(R.id.mov_title)TextView titles;
     @BindView(R.id.mov_date)TextView releaseDates;
     @BindView(R.id.mov_rate)TextView ratingAverageView;
     @BindView(R.id.mov_ratebar)RatingBar ratingBarView;
     @BindView(R.id.mov_overview)TextView overview;
-    @BindView(R.id.recyclerview_trailer)RecyclerView recyclerViewTrailer;
+    @BindView(R.id.recyclerview_trailer) RecyclerView recyclerViewTrailer;
     @BindView(R.id.review_list) RecyclerView mRecyclerViewForReviews;
 
     public static Fragment newInstance(long movieId, String movieData){
@@ -83,7 +85,6 @@ public class DetailFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_detail,container,false);
-
     }
 
     @Override
@@ -96,7 +97,7 @@ public class DetailFragment extends Fragment {
 
         Uri uri = ImageUtils.movieUrl(ImageSize.w342.getValue(),
                 movie.posterPath);
-        Picasso.with(getActivity()).load(uri.toString()).into(posters);
+        Picasso.get().load(uri.toString()).into(posters);
 
         titles.setText(movie.title);
         releaseDates.setText(movie.releaseDate);
@@ -106,7 +107,7 @@ public class DetailFragment extends Fragment {
 
         LinearLayoutManager gridLayoutManager = new LinearLayoutManager(
                 getActivity(),
-                LinearLayoutManager.VERTICAL,
+                RecyclerView.VERTICAL,
                 false);
 
         recyclerViewTrailer.setLayoutManager(gridLayoutManager);
@@ -131,15 +132,11 @@ public class DetailFragment extends Fragment {
         });
 
         mReviewListAdapter = new ReviewsAdapter();
-
         mRecyclerViewForReviews.setAdapter(mReviewListAdapter);
-
         recyclerViewTrailer.setAdapter(adapter);
 
         getTrailer(movie.id);
-
         getReviews(movie.id);
-
     }
 
     private void getReviews(long id) {
@@ -160,7 +157,6 @@ public class DetailFragment extends Fragment {
                     alertDialog.setMessage("Symptom Tidak Ada" );
                     alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
-
                         }
                     });
                     alertDialog.show();
@@ -175,7 +171,6 @@ public class DetailFragment extends Fragment {
                 alertDialog.setMessage("Kesalahan Jaringan" + t.getMessage());
                 alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-
                     }
                 });
                 alertDialog.show();
@@ -206,7 +201,6 @@ public class DetailFragment extends Fragment {
                     alertDialog.setMessage("Symptom Tidak Ada");
                     alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
-
                         }
                     });
                     alertDialog.show();
@@ -222,13 +216,10 @@ public class DetailFragment extends Fragment {
                 alertDialog.setMessage("Kesalahan Jaringan");
                 alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-
                     }
                 });
                 alertDialog.show();
             }
         });
     }
-
-
 }

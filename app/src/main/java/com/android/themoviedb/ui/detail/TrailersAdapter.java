@@ -1,12 +1,13 @@
 package com.android.themoviedb.ui.detail;
 
 import android.net.Uri;
-import android.support.annotation.LayoutRes;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.annotation.LayoutRes;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.themoviedb.api.service.ServiceConfig;
 import com.android.themoviedb.model.Trailer;
@@ -17,6 +18,11 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+/*
+ Created by twin on Dec 07, 2016
+Updated by twin on May 10, 2019
+*/
 
 public class TrailersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 

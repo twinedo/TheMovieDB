@@ -1,23 +1,23 @@
 package com.android.themoviedb.ui.detail;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.android.themoviedb.R;
-import com.google.gson.Gson;
-
-import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+/*
+ Created by twin on Dec 04, 2016
+Updated by twin on May 10, 2019
+*/
+
 public class DetailActivity extends AppCompatActivity {
 
-    @BindView(R.id.toolbar) Toolbar toolbar;
-
-    @Inject
-    Gson gson;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +34,6 @@ public class DetailActivity extends AppCompatActivity {
 
         setupToolbar();
     }
-
 
     private void setupToolbar() {
         setSupportActionBar(toolbar);

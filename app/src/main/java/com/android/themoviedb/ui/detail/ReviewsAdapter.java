@@ -1,11 +1,12 @@
 package com.android.themoviedb.ui.detail;
 
-import android.support.annotation.LayoutRes;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.annotation.LayoutRes;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.themoviedb.R;
 import com.android.themoviedb.model.Reviews;
@@ -17,10 +18,10 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-/**
- * Created by twin on 07/12/16.
- */
-
+/*
+ Created by twin on Dec 07, 2016
+Updated by twin on May 10, 2019
+*/
 public class ReviewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private List<Reviews> reviewsList = new ArrayList<>();
@@ -47,8 +48,6 @@ public class ReviewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             ((MovieReviewsHolder) holder).mReview = review;
             ((MovieReviewsHolder) holder).mAuthorView.setText(review.getAuthor());
             ((MovieReviewsHolder) holder).mContentView.setText(review.getContent());
-
-
         }
     }
 
@@ -58,7 +57,6 @@ public class ReviewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     }
 
     public class Holder extends RecyclerView.ViewHolder {
-
         public Holder(@LayoutRes int resId, ViewGroup parent) {
             super(LayoutInflater.from(parent.getContext()).inflate(resId, parent, false));
         }

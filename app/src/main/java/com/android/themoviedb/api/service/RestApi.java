@@ -3,9 +3,10 @@ package com.android.themoviedb.api.service;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-/**
- * Created by twin on 04/12/16.
- */
+/*
+ Created by twin on Dec 04, 2016
+Updated by twin on May 10, 2019
+*/
 
 public class RestApi {
     private static Retrofit retrofit = null;

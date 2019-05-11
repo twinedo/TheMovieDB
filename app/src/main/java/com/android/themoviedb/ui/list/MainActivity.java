@@ -1,24 +1,31 @@
 package com.android.themoviedb.ui.list;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
 
 import com.android.themoviedb.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+/*
+ Created by twin on Dec 04, 2016
+Updated by twin on May 10, 2019
+*/
+
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
     public static final String FRAGMENT_MOVIES_TAG = "FragmentMoviesTag";
 
-    @BindView(R.id.toolbar)Toolbar toolbar;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
     @BindView(R.id.spinner)Spinner spinner;
 
     @Override
@@ -81,6 +88,5 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
-
     }
 }

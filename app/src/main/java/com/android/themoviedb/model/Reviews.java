@@ -2,9 +2,10 @@ package com.android.themoviedb.model;
 
 import com.google.gson.annotations.SerializedName;
 
-/**
- * Created by twin on 07/12/16.
- */
+/*
+ Created by twin on Dec 04, 2016
+Updated by twin on May 10, 2019
+*/
 
 public class Reviews {
 

@@ -1,8 +1,9 @@
 package com.android.themoviedb.utils;
 
-/**
- * Created by twin on 04/12/16.
- */
+/*
+ Created by twin on Dec 04, 2016
+Updated by twin on May 10, 2019
+*/
 
 public enum ImageSize {
     w185(185, "w185"),

@@ -1,12 +1,12 @@
 package com.android.themoviedb.utils;
 
 import android.net.Uri;
-
 import com.android.themoviedb.api.service.ServiceConfig;
 
-/**
- * Created by twin on 04/12/16.
- */
+/*
+ Created by twin on Dec 04, 2016
+Updated by twin on May 10, 2019
+*/
 
 public class ImageUtils {
     public static Uri movieUrl(String size, String posterPath) {
